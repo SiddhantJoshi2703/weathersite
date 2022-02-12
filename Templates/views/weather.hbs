@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+     {{>navbar}}
+
+    <div class="container-fluid main_header">
+      <div class="row">
+        <div class="col-md-10 col-12 mx-auto">
+           <div class="main-content">
+             <form class="temp_form">
+               <input type="text" id="cityname" placeholder="Enter the city name" autocomplete="off">
+               <input type="submit" id="submitbtn" value="search">
+             </form>
+           </div>
+           <div class="tempInformation">
+             <div class="toplayer">
+               <p id="day">Tuesday</p>
+               <p id="date">8-8-2008</p>
+             </div>
+             <div class="mainlayer">
+               <p id="city_Name">Get the latest info here</p>
+               <div class="middlelayer hide_data">
+                 <p id="temp"><span id="mag">0</span> <sup>0</sup>C</p>
+                 <p id="tempstatus"> <i class="fas fa-cloud" aria-hidden="true"></i> </p>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
+   
+ 
+    <!-- footer -->
+ {{>footer}}
+
+  <script src="js/main.js"></script>
+  <script>
+    const getcurrentday=()=>{
+      let weekday= new Array(7);
+      weekday[0]="Sunday";
+      weekday[1]="Monday";
+      weekday[2]="Tuesday";
+      weekday[3]="Wednesday";
+      weekday[4]="Thursday";
+      weekday[5]="friday";
+      weekday[6]="Saturday";
+      
+      let currentTime= new Date();
+      let days= weekday[currentTime.getDay()];
+      const day=document.getElementById('day');
+      const date=document.getElementById('date');
+      
+      day.innerText=days;
+      date.innerText=currentTime;
+    }
+
+    getcurrentday();
+  </script>
+
+</body>
+</html>
